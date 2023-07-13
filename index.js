@@ -23,6 +23,12 @@ inquirer
     var qr_img = qr.image(url);             //.image("text or url", type of file default .png)
     qr_img.pipe(fs.createWriteStream('qr_img.png'));            //createWriteStream(qr file name)
 
+    //step 3
+    fs.writeFile("URL.txt", url , (err)=>{
+        if (err) throw err;
+        console.log("File Saved Successfully");
+    })
+
   })
   .catch((error) => {                   //inquirer.catch
     if (error.isTtyError) {
